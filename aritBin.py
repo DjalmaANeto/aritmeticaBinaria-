@@ -35,7 +35,7 @@ def decToBin(D):
     return results
 
 #função responsável pela conversão da parte fracionaria 
-def multiplications():
+def multiplications(dec):
     numberD = []
     # no caso de uma dizima periodica sera interrompida em 6 casas
     results = ""
@@ -48,48 +48,56 @@ def multiplications():
             dec = dec - 1
         x = 1 + x
     
-    results = "."
+    results += "."
     for x in numberD:
         results += str(x)
     
     return results
 
 #função que checa se há partes fracionárias para então converter
-def checkAndTransform(D):
+def checkAndTransformBin(D):
     results = ""
+
+    for x in list(D):
+        if x == ".":
+            D = float(D)
+    
+    if float(D) - int(D) == 0:
+        D = int(D)
+
     if D - int(D) == 0:
         results = decToBin(D)
 
     else:
         dec = D - int(D)
         results = decToBin(D)
-        results = results + multiplications(dec)
+        results += multiplications(dec)
     
     return results
 
 
 #coração da função soma
 def sum(n, n1):
-    return decToBin(int(binToDec(n)) + int(binToDec(n1)))
+    return checkAndTransformBin(int(binToDec(n)) + int(binToDec(n1)))
     
 
 #coração da função subtração
 def sub(n, n1):
-    return decToBin(int(binToDec(n)) - int(binToDec(n1)))
+    return checkAndTransformBin(int(binToDec(n)) - int(binToDec(n1)))
     
 #coração da função divisão
 def div(n, n1):
-    return decToBin(int(binToDec(n)) / int(binToDec(n1)))
+    return checkAndTransformBin(int(binToDec(n)) / int(binToDec(n1)))
     
 
 #coração da função multiplicação
 def mul(n, n1):
-    return decToBin(int(binToDec(n)) * int(binToDec(n1)))
+    return checkAndTransformBin(int(binToDec(n)) * int(binToDec(n1)))
 
 #função main(principal) responsavel pelo controlador da aplicação
 def main():
-    n = []
-    n1 = []
+    # n = []
+    # n1 = []
     results = " "
     op = " "
 
@@ -122,7 +130,7 @@ def main():
         op = input("1 --- DEC to BIN\n2 --- BIN to DEC\n8===D")
         if op == "1":
             n = input("😚hey hot boy type a number to test: ")
-            results = decToBin(n)
+            results = checkAndTransformBin(n)
             print("Look😚\n",n," in bin ", results)
         elif op == "2":
             n = input("😚hey hot boy type a number to test: ")
