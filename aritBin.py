@@ -15,7 +15,7 @@ def binToDec(n):
 
 #precimos corrigir nosso resultado para binário novamente certo? então:
 
-#função responsavel por converter decimais em binario
+#função responsavel por converter decimais em binario na parte inteira 
 def decToBin(D):
     D = int(D)
     numberI = []    
@@ -33,6 +33,40 @@ def decToBin(D):
         results += str(x)
     
     return results
+
+#função responsável pela conversão da parte fracionaria 
+def multiplications():
+    numberD = []
+    # no caso de uma dizima periodica sera interrompida em 6 casas
+    results = ""
+    x = 0
+    while x <= 5:
+        dec = dec * 2
+        temp = dec
+        numberD.append(int(temp))
+        if int(dec) == 1:
+            dec = dec - 1
+        x = 1 + x
+    
+    results = "."
+    for x in numberD:
+        results += str(x)
+    
+    return results
+
+#função que checa se há partes fracionárias para então converter
+def checkAndTransform(D):
+    results = ""
+    if D - int(D) == 0:
+        results = decToBin(D)
+
+    else:
+        dec = D - int(D)
+        results = decToBin(D)
+        results = results + multiplications(dec)
+    
+    return results
+
 
 #coração da função soma
 def sum(n, n1):
