@@ -124,18 +124,7 @@ def main():
         results = mul(n, n1)
         print(n,"*",n1,"=",results)
 ##########################################################################
-    elif op == "666":
-        op = input("1 --- DEC to BIN\n2 --- BIN to DEC\n8===D")
-        if op == "1":
-            n = input("😚hey hot boy type a number to test: ")
-            results = checkAndTransformBin(n)
-            print("Look😚\n",n," in bin ", results)
-        elif op == "2":
-            n = input("😚hey hot boy type a number to test: ")
-            results = binToDec(n)
-            print("Look😚\n",n," in dec ", results)
-        else: 
-            print("😪BAKA😪")
+    
 ##########################################################################
     else:
         print("Invalid option 😪...")
