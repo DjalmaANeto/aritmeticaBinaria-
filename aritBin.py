@@ -78,26 +78,24 @@ def checkAndTransformBin(D):
 
 #coração da função soma
 def sum(n, n1):
-    return checkAndTransformBin(int(binToDec(n)) + int(binToDec(n1)))
+    return checkAndTransformBin(str(int(binToDec(n)) + int(binToDec(n1))))
     
 
 #coração da função subtração
 def sub(n, n1):
-    return checkAndTransformBin(int(binToDec(n)) - int(binToDec(n1)))
+    return checkAndTransformBin(str(int(binToDec(n)) - int(binToDec(n1))))
     
 #coração da função divisão
 def div(n, n1):
-    return checkAndTransformBin(int(binToDec(n)) / int(binToDec(n1)))
-    
+    return checkAndTransformBin(str(int(binToDec(n)) / int(binToDec(n1))))
+        
 
 #coração da função multiplicação
 def mul(n, n1):
-    return checkAndTransformBin(int(binToDec(n)) * int(binToDec(n1)))
+    return checkAndTransformBin(str(int(binToDec(n)) * int(binToDec(n1))))
 
 #função main(principal) responsavel pelo controlador da aplicação
 def main():
-    # n = []
-    # n1 = []
     results = " "
     op = " "
 
